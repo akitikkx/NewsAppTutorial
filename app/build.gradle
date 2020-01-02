@@ -65,6 +65,10 @@ dependencies {
     // Timber for logging
     implementation "com.jakewharton.timber:timber:$timber_version"
 
+    // OkHTTP for Retrofit
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_interceptor_version"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
