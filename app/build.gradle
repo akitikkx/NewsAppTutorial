@@ -26,6 +26,10 @@ android {
         }
     }
 
+    buildTypes.each {
+        it.buildConfigField 'String', 'NEWS_API_KEY', NewsApiKey
+    }
+
     dataBinding {
         enabled = true
     }
