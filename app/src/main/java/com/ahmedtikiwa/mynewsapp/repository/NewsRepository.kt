@@ -13,17 +13,17 @@ import timber.log.Timber
 
 class NewsRepository() {
 
-    val _articles = MutableLiveData<List<Article>>()
+    val _headlines = MutableLiveData<List<Article>>()
 
-    val articles: LiveData<List<Article>>
-        get() = _articles
+    val headlines: LiveData<List<Article>>
+        get() = _headlines
 
     suspend fun refreshHeadlines() {
         withContext(Dispatchers.IO) {
             try {
                 val articleList =
                     Network.newsapi.getTopHeadlinesAsync("us", BuildConfig.NEWS_API_KEY).await()
-                _articles.postValue(articleList.asDomainModel())
+                _headlines.postValue(articleList.asDomainModel())
             } catch (e: HttpException) {
                 Timber.e(e)
             }
